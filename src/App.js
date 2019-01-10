@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Axios from 'axios';
 import Content from './Content.js';
 
 class App extends Component {
@@ -8,15 +7,25 @@ class App extends Component {
   constructor() {
     super();
     this.state ={
-      searchName: ''
+      searchName: 'Ant'
     }
+
+  // this.changeSearch = this.changeSearch.bind(this);
+  }
+
+  changeSearch = (event) => {
+    this.setState({searchName: event.target.value});
   }
 
   render() {
     return (
       <div className="App">
-        <input type="text"/>
-        <Content />
+        <div className = "header">
+          <h1>Movie Finder</h1>
+          </div>
+        Type Movie name:&nbsp;<input type="text" onChange={this.changeSearch}/>
+        <Content search = {this.state.searchName}/>
+
       </div>
     );
   }
