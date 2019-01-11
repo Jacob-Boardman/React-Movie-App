@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Content.css';
 import axios from 'axios';
 import Film from './Film.js';
-import RecentFilm from './RecentFilms.js';
+import RecentFilms from './RecentFilms.js';
 
 class Content extends Component {
     constructor() {
@@ -14,14 +14,8 @@ class Content extends Component {
     }
 
     getfilms = () => {
-        
-        let recentmovies = this.state.recentSearches;
         axios.get('http://www.omdbapi.com/?s=' + this.props.search + '&apikey=843849e3&').then(response => {
-            recentmovies.push(response.data.Search[0]);
-            this.setState({ films: response.data,
-            recentSearches: recentmovies});
-            console.log(recentmovies);
-            console.log(this.state.recentSearches);
+            this.setState({ films: response.data});
         })
     }
 
@@ -34,6 +28,9 @@ class Content extends Component {
         }
 
         let recentMovies= [];
+        if(this.state.films) {
+            recentMovies.push(<RecentFilms recent = {this.state.films.Search[0]} />)
+        }
 
         let texty = "Too many results, Please refine search";
 
@@ -49,7 +46,7 @@ class Content extends Component {
 
                     <div className="recentSearch">
                         <h2>Recent Searches</h2>
-                        {this.state.recentSearches != ""? <RecentFilm recent = {this.state.recentSearches}/> : null}
+                        {recentMovies}
                     </div>
                 </div>
 

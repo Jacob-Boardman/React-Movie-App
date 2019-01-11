@@ -12,7 +12,7 @@ class Film extends Component {
                     <p className="year">Year Released:&nbsp;{this.props.recent.Year}</p>
                 </form>
                 <p className="poster"><img src={this.props.recent.Poster}/></p>
-                {console.log(this.props.recent[0].Title)}
+                
 
             </div>
         );
