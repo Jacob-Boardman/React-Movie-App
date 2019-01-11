@@ -24,3 +24,10 @@
     transform: translateY(4px);
     transform: scale(0.95, 0.95);    
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-gap: 10px;
+  grid-column-gap: 20vw;;
+}

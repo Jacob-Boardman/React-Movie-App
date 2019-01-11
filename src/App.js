@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state ={
-      searchName: 'Antz'
+      searchName: ''
     }
 
   // this.changeSearch = this.changeSearch.bind(this);
