@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import './Film.css';
 
-class Film extends Component {
+class RecentFilm extends Component {
 
+    
 
     render() {
         return (
             <div className="films">
+                <div>
+                    Searched for:&nbsp;
+                    </div>
                 <form className="movieData">
                     <p className="title">Title:&nbsp;{this.props.recent.Title}</p>
                     <p className="year">Year Released:&nbsp;{this.props.recent.Year}</p>
@@ -19,4 +23,4 @@ class Film extends Component {
     }
 }
 
-export default Film;
+export default RecentFilm;
