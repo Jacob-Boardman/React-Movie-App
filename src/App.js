@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import Content from './Content.js';
+import Reel from './film-reel.png'
 
 class App extends Component {
 
   constructor() {
     super();
     this.state ={
-      searchName: 'Ant'
+      searchName: 'Antz'
     }
 
   // this.changeSearch = this.changeSearch.bind(this);
@@ -20,10 +21,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <img src ={Reel} alt="Reel" className="logo"/>
         <div className = "header">
           <h1>Movie Finder</h1>
-          </div>
-        Type Movie name:&nbsp;<input type="text" onChange={this.changeSearch}/>
+      </div>
+        
+        <h2> Type Movie name&nbsp; </h2><input type="text" onChange={this.changeSearch} placeholder="Enter a movie name... "/>
         <Content search = {this.state.searchName}/>
 
       </div>
