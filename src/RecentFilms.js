@@ -9,7 +9,7 @@ class RecentFilm extends Component {
         return (
             <div className="films">
                 <div>
-                    Searched for:&nbsp;
+                    Searched for:&nbsp; NaN
                     </div>
                 <form className="movieData">
                     <p className="title">Title:&nbsp;{this.props.recent.Title}</p>

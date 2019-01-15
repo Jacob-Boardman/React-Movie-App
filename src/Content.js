@@ -12,7 +12,9 @@ class Content extends Component {
             recentSearches: "",
             recentMovies: []
         }
+
     }
+
 
     getfilms = () => {
         axios.get('http://www.omdbapi.com/?s=' + this.props.search + '&apikey=843849e3&').then(response => {
@@ -27,9 +29,14 @@ class Content extends Component {
             newMovies.splice(0, 0, this.state.films.Search[0]);
             if (newMovies.length > 4) {
                 newMovies.pop();
-            }            
+            }
             this.setState({ recentMovies: newMovies });
+            this.getCurrentState();
         }
+    }
+
+    getCurrentState = () => {
+       //implement recent search array 
     }
 
     render() {
@@ -41,7 +48,7 @@ class Content extends Component {
         }
 
         let texty = "Too many results, Please refine search";
-        console.log(this.state.recentMovies);
+        
         return (
             <div className="content">
                 <button onClick={this.getfilms} className="findFilmBt">Find Films</button>
@@ -54,7 +61,7 @@ class Content extends Component {
 
                     <div className="recentSearch">
                         <h2>Recent Searches</h2>
-                        {this.state.recentMovies.map((recentFilm) => <RecentFilms recent={recentFilm} searched={this.props.search} />)}
+                        {this.state.recentMovies.map((recentFilm) => <RecentFilms recent={recentFilm}/>)}
                     </div>
                 </div>
 
